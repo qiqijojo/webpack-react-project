@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/qiqijojo/webpack-react-project/issues"
   },
-  "homepage": "https://github.com/qiqijojo/webpack-react-project#readme"
+  "homepage": "https://github.com/qiqijojo/webpack-react-project#readme",
+  "dependencies": {
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3"
+  }
 }
