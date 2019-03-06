@@ -11,6 +11,6 @@ module.exports = {
         host: '0.0.0.0',
         port: 8080,
         // historyApiFallback: true,
-        contentBase: path.resolve(__dirname, '../public')
+        contentBase: path.resolve(__dirname, '../public') // 配置devserver http服务器可访问文件
     }
 };

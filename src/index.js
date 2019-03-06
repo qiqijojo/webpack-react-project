@@ -12,4 +12,4 @@
 //     <Demo />,
 //     document.getElementById('root')
 // );
-window.document.getElementById('root').innerText = '33334444-' + '额鹅444eee鹅鹅';
+window.document.getElementById('root').innerText = 'hi-' + 'webpack';
