@@ -2,9 +2,8 @@
   "name": "react-scaffold",
   "version": "1.0.0",
   "description": "webpack-react-peoject",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack --config webpack/webpack.config.development.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +21,10 @@
   "dependencies": {
     "react": "^16.8.3",
     "react-dom": "^16.8.3"
+  },
+  "devDependencies": {
+    "babel-loader": "^8.0.5",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
   }
 }
