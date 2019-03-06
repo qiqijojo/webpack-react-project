@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "webpack-react-peoject",
   "scripts": {
-    "start": "webpack --config webpack/webpack.config.development.js"
+    "start": "webpack-dev-server --config webpack/webpack.config.development.js",
+    "build": "webpack --config webpack/webpack.config.production.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "babel-loader": "^8.0.5",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3"
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
   }
 }
