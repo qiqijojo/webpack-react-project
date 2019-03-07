@@ -17,7 +17,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'react project'
+            template: path.resolve(__dirname, '../public/index.html'),
+            filename: 'index.html'
         })
     ]
 };
