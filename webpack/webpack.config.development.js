@@ -1,4 +1,6 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     entry: path.resolve(__dirname, '../src/index.js'),
     output: {
@@ -11,6 +13,9 @@ module.exports = {
         host: '0.0.0.0',
         port: 8080,
         // historyApiFallback: true,
-        contentBase: path.resolve(__dirname, '../public') // 配置devserver http服务器可访问文件
-    }
+        contentBase: path.resolve(__dirname, '../dist') // 配置devserver http服务器可访问文件
+    },
+    plugins: [
+        new HtmlWebpackPlugin()
+    ]
 };

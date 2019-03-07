@@ -12,4 +12,8 @@
 //     <Demo />,
 //     document.getElementById('root')
 // );
-window.document.getElementById('root').innerText = 'hi-' + 'webpack';
+function consoleLog () {
+    console.log('000');
+}
+consoleLog();
+// window.document.getElementById('root').innerText = '444';
