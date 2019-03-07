@@ -12,7 +12,7 @@
 //     <Demo />,
 //     document.getElementById('root')
 // );
-const path = require('path');
+let path = require('path');
 function consoleLog () {
     console.log('4444', path.resolve(__dirname, '../dist'));
 }

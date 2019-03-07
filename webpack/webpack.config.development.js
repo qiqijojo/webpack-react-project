@@ -15,6 +15,14 @@ module.exports = {
         // historyApiFallback: true,
         contentBase: path.resolve(__dirname, '../dist') // 配置devserver http服务器可访问文件
     },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                use: ['eslint-loader']
+            }
+        ]
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../public/index.html'),
