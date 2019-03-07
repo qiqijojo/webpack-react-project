@@ -16,6 +16,8 @@ module.exports = {
         contentBase: path.resolve(__dirname, '../dist') // 配置devserver http服务器可访问文件
     },
     plugins: [
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin({
+            title: 'react project'
+        })
     ]
 };
