@@ -12,8 +12,8 @@
 //     <Demo />,
 //     document.getElementById('root')
 // );
+const path = require('path');
 function consoleLog () {
-    console.log('000');
+    console.log('4444', path.resolve(__dirname, '../dist'));
 }
 consoleLog();
-// window.document.getElementById('root').innerText = '444';
