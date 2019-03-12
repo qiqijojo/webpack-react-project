@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "webpack-react-peoject",
   "scripts": {
-    "precommit": "eslint && stylelint",
+    "lint": "eslint *.js",
     "start": "webpack-dev-server --config webpack/webpack.config.development.js",
     "build": "webpack --config webpack/webpack.config.production.js"
   },
@@ -31,8 +31,14 @@
     "eslint-loader": "^2.1.2",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^1.3.1",
+    "stylelint": "^9.10.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1"
+  },
+  "husky": {
+      "hooks": {
+          "pre-commit": "echo 'husky222' && npm run lint"
+      }
   }
 }
