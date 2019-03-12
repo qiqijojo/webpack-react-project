@@ -38,7 +38,7 @@
   },
   "husky": {
       "hooks": {
-          "pre-commit": "echo 'husky222' && npm run lint"
+          "pre-commit": "npm run lint"
       }
   }
 }
