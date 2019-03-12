@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "webpack-react-peoject",
   "scripts": {
-    "lint": "eslint *.js",
+    "lint": "eslint \"src/*.js\"",
     "start": "webpack-dev-server --config webpack/webpack.config.development.js",
     "build": "webpack --config webpack/webpack.config.production.js"
   },
