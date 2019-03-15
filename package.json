@@ -40,8 +40,6 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx}": [
-      "prettier --tab-width 4 --write",
-      "eslint --fix",
       "git add"
     ]
   },
