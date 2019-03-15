@@ -12,8 +12,8 @@
 //     <Demo />,
 //     document.getElementById('root')
 // );
-let path = require('path');
-function consoleLog () {
-    console.log('4444', path.resolve(__dirname, '../dist'));
+let path = require("path");
+function consoleLog() {
+    console.log("4444", path.resolve(__dirname, "../dist"));
 }
 consoleLog();

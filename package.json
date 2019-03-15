@@ -36,9 +36,16 @@
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1"
   },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+        "prettier --tab-width 4 --write",
+        "eslint --fix",
+        "git add"
+    ]
+  },
   "husky": {
       "hooks": {
-          "pre-commit": "npm run lint"
+          "pre-commit": "lint-staged"
       }
   }
 }
