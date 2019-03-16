@@ -3,6 +3,14 @@
         "browser": true,
         "node": true
     },
+    "extends": "eslint:recommended",
     "parser": "babel-eslint",
-    "rules": {}
+    "rules": {
+        "no-console": [
+            "error",
+            {
+                "allow": ["warn", "error", "info"]
+            }
+        ]
+    }
 }
