@@ -22,6 +22,14 @@ module.exports = {
                 use: ['eslint-loader'],
                 exclude: /node_modules/,
                 enforce: 'pre'
+            },
+            {
+                test: /\.js$/,
+                use: [{
+                    loader: 'babel-loader',
+                    options: { presets: ['@babel/react'] }
+                }],
+                exclude: /node_modules/
             }
         ]
     },

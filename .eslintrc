@@ -4,7 +4,7 @@
         "node": true,
         "es6": true
     },
-    "extends": "eslint:recommended",
+    "extends": "airbnb",
     "parser": "babel-eslint",
     "rules": {
         "no-console": [
@@ -12,6 +12,11 @@
             {
                 "allow": ["warn", "error", "info"]
             }
-        ]
+        ],
+        "comma-dangle": 0,
+        "react/jsx-indent": [1, 4],
+        "indent": [1, 4],
+        "no-unused-vars": [1],
+        "react/jsx-filename-extension": [1, { "extensions": [".js"] }]
     }
 }
