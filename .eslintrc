@@ -17,6 +17,8 @@
         "react/jsx-indent": [1, 4],
         "indent": [1, 4],
         "no-unused-vars": [1],
-        "react/jsx-filename-extension": [1, { "extensions": [".js"] }]
+        "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+        "no-tabs": 0,
+        "no-mixed-spaces-and-tabs": 0
     }
 }
