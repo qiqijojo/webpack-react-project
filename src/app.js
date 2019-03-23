@@ -1,8 +1,9 @@
 import React from 'react';
 import { DatePicker, Button } from 'antd';
+import './app.less';
 
 const App = () => (
-    <div>
+    <div className="app-wrapper">
         <Button type="primary">测试antd</Button>
         <DatePicker />
     </div>
