@@ -15,6 +15,19 @@ module.exports = {
                     loader: 'babel-loader'
                 }],
                 exclude: /node_modules/
+            },
+            {
+                test: /\.(css|less)$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            javascriptEnabled: true
+                        }
+                    }
+                ]
             }
         ]
     },
