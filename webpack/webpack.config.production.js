@@ -9,6 +9,7 @@ module.exports = {
     },
     output: {
         filename: 'public/js/[name].js',
+        chunkFilename: 'public/js/[id].chunk.js',
         path: path.resolve(__dirname, '../dist')
     },
     module: {
@@ -43,7 +44,7 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: 'public/css/[name].css',
-            chunkFilename: 'public/css/[id].css'
+            chunkFilename: 'public/css/[id].chunk.css'
         })
     ]
 };
