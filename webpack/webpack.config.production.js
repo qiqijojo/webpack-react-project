@@ -8,8 +8,8 @@ module.exports = {
         app: path.resolve(__dirname, '../src/index.js')
     },
     output: {
-        filename: 'public/js/[name].js',
-        chunkFilename: 'public/js/[id].chunk.js',
+        filename: 'public/js/[name].[hash:8].js',
+        chunkFilename: 'public/js/[id].[hash:8].chunk.js',
         path: path.resolve(__dirname, '../dist')
     },
     module: {
@@ -43,8 +43,8 @@ module.exports = {
             filename: 'public/index.html'
         }),
         new MiniCssExtractPlugin({
-            filename: 'public/css/[name].css',
-            chunkFilename: 'public/css/[id].chunk.css'
+            filename: 'public/css/[name].[hash:8].css',
+            chunkFilename: 'public/css/[id].[hash:8].chunk.css'
         })
     ]
 };
