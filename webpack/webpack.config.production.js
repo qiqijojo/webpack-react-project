@@ -8,7 +8,7 @@ module.exports = {
         app: path.resolve(__dirname, '../src/index.js')
     },
     output: {
-        filename: 'bundle.js',
+        filename: 'public/js/[name].js',
         path: path.resolve(__dirname, '../dist')
     },
     module: {
@@ -39,11 +39,11 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../public/index.html'),
-            filename: 'index.html'
+            filename: 'public/index.html'
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].css',
-            chunkFilename: '[id].css'
+            filename: 'public/css/[name].css',
+            chunkFilename: 'public/css/[id].css'
         })
     ]
 };
