@@ -41,11 +41,19 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../public/index.html'),
-            filename: 'public/index.html'
+            filename: 'index.html'
         }),
         new MiniCssExtractPlugin({
             filename: 'public/css/[name].[hash:8].css',
             chunkFilename: 'public/css/[id].[hash:8].chunk.css'
         })
-    ]
+    ],
+    resolve: {
+        alias: {
+            pages: path.resolve(__dirname, '../src/pages'),
+            components: path.resolve(__dirname, '../src/components'),
+            assets: path.resolve(__dirname, '../src/assets'),
+            utils: path.resolve(__dirname, '../src/utils')
+        }
+    }
 };
