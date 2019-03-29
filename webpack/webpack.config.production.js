@@ -11,7 +11,7 @@ module.exports = {
         filename: 'public/js/[name].[hash:8].js',
         chunkFilename: 'public/js/[id].[hash:8].chunk.js',
         path: path.resolve(__dirname, '../dist'),
-        publicPath: '/'
+        publicPath: '/' // 构建资源存放路径（绝对路径）
     },
     module: {
         rules: [
