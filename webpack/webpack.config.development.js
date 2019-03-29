@@ -8,7 +8,8 @@ module.exports = {
     output: {
         filename: 'public/js/[name].js',
         chunkFilename: 'public/js/[id].chunk.js',
-        path: path.resolve(__dirname, '../dist')
+        path: path.resolve(__dirname, '../dist'),
+        publicPath: '/'
     },
     devServer: {
         hot: true, // 开启热模块替换（必须配合inline一起使用）--实现实时预览
@@ -53,5 +54,13 @@ module.exports = {
             template: path.resolve(__dirname, '../public/index.html'),
             filename: 'public/index.html'
         })
-    ]
+    ],
+    resolve: {
+        alias: {
+            pages: path.resolve(__dirname, '../src/pages'),
+            components: path.resolve(__dirname, '../src/components'),
+            assets: path.resolve(__dirname, '../src/assets'),
+            utils: path.resolve(__dirname, '../src/utils')
+        }
+    }
 };

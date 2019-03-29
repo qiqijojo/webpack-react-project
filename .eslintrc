@@ -18,8 +18,9 @@
         "indent": [1, 4],
         "no-unused-vars": [1],
         "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
-        "no-tabs": 0,
-        "no-mixed-spaces-and-tabs": 0,
-        "object-curly-newline": 0
+        "no-tabs": [0],
+        "no-mixed-spaces-and-tabs": [0],
+        "object-curly-newline": [0],
+        "import/no-unresolved": [0]
     }
 }
