@@ -39,10 +39,14 @@ module.exports = {
                 test: /\.(png|svg|jpe?g|gif)$/i,
                 use: [
                     {
-                        loader: 'file-loader'
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: 'public/images/',
+                            name: '[name].[hash:8].[ext]'
+                        }
                     }
                 ]
-            },
+            }
         ]
     },
     plugins: [
