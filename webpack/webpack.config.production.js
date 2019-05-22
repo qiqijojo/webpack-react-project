@@ -44,6 +44,9 @@ module.exports = {
                             outputPath: 'public/images/',
                             name: '[name].[hash:8].[ext]'
                         }
+                    },
+                    {
+                        loader: 'image-webpack-loader' // 对图片的压缩使用相应的默认配置
                     }
                 ]
             }
