@@ -49,6 +49,18 @@ module.exports = {
                         loader: 'image-webpack-loader' // 对图片的压缩使用相应的默认配置
                     }
                 ]
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: 'public/font/',
+                            name: '[name].[hash:8].[ext]'
+                        }
+                    }
+                ]
             }
         ]
     },

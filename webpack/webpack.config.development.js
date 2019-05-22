@@ -58,6 +58,18 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: 'public/font/',
+                            name: '[name].[ext]'
+                        }
+                    }
+                ]
             }
         ]
     },
