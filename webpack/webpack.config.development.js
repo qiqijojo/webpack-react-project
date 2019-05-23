@@ -22,13 +22,13 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 use: ['eslint-loader'],
                 exclude: /node_modules/,
                 enforce: 'pre'
             },
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 use: [{
                     loader: 'babel-loader'
                 }],
@@ -36,6 +36,27 @@ module.exports = {
             },
             {
                 test: /\.(css|less)$/,
+                exclude: /node_modules/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            localIdentName: '[name]_[local]_[hash:8]'
+                        }
+                    },
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            javascriptEnabled: true
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(css|less)$/,
+                include: /node_modules/,
                 use: [
                     'style-loader',
                     'css-loader',

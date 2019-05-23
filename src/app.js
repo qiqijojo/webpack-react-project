@@ -1,10 +1,10 @@
 import React from 'react';
 import { DatePicker, Button } from 'antd';
 import Com1 from 'components/com1/index';
-import './app.less';
+import styles from './app.less';
 
 const App = () => (
-    <div className="app-wrapper">
+    <div className={styles['app-wrapper']}>
         <Button type="primary">测试antd</Button>
         <DatePicker />
         <Com1 />
