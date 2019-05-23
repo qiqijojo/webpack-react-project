@@ -34,6 +34,7 @@ module.exports = {
                             localIdentName: '[name]_[local]_[hash:8]'
                         }
                     },
+                    'postcss-loader',
                     {
                         loader: 'less-loader',
                         options: {
@@ -48,6 +49,7 @@ module.exports = {
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader',
+                    'postcss-loader',
                     {
                         loader: 'less-loader',
                         options: {
