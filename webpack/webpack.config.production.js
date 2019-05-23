@@ -24,6 +24,27 @@ module.exports = {
             },
             {
                 test: /\.(css|less)$/,
+                exclude: /node_modules/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            localIdentName: '[name]_[local]_[hash:8]'
+                        }
+                    },
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            javascriptEnabled: true
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(css|less)$/,
+                include: /node_modules/,
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader',
