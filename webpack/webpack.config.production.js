@@ -1,7 +1,9 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 
 module.exports = {
     entry: {
@@ -88,7 +90,10 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(),
+        new CleanWebpackPlugin(['public', 'index.html'], {
+            root: path.resolve(__dirname, '../dist'),
+            exclude: ['dll'] // clean时，不删除dll文件夹
+        }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../public/index.html'),
             filename: 'index.html'
@@ -96,6 +101,15 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'public/css/[name].[hash:8].css',
             chunkFilename: 'public/css/[id].[hash:8].chunk.css'
+        }),
+        // webpack读取到vendor的manifest文件对于vendor的依赖不会进行编译打包
+        new webpack.DllReferencePlugin({
+            manifest: require(path.resolve(__dirname, '../dist/public/dll/vendor-manifest.json'))
+        }),
+        // 将第三方打包文件vendor.dll.js动态添加进html里
+        new HtmlWebpackIncludeAssetsPlugin({
+            assets: ['public/dll/vendor.dll.js'],
+            append: false // false 在其他资源的之前添加 true 在其他资源之后添加
         })
     ],
     resolve: {
