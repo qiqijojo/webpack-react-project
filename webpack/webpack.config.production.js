@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
     entry: {
@@ -110,6 +111,9 @@ module.exports = {
         new HtmlWebpackIncludeAssetsPlugin({
             assets: ['public/dll/vendor.dll.js'],
             append: false // false 在其他资源的之前添加 true 在其他资源之后添加
+        }),
+        new BundleAnalyzerPlugin({
+            analyzerPort: 8081
         })
     ],
     resolve: {
