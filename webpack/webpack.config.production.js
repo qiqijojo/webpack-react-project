@@ -45,7 +45,7 @@ module.exports = {
                 },
             }),
             new OptimizeCssAssetsPlugin({
-                assetNameRegExp: /\.css$/g,
+                assetNameRegExp: /\.css\.*(?!.*map)/g, // 注意不要写成 /\.css$/g
                 cssProcessor: require('cssnano'),
                 cssProcessorOptions: {
                     // 使用安全模式，避免 cssnano 重新计算 z-index
@@ -54,6 +54,7 @@ module.exports = {
                     // 默认不移除许可证注释，这里移除所有
                     discardComments: { removeAll: true },
 
+                    // cssnano通过移除注释、空白、重复规则、过时的浏览器前缀以及做出其他的优化来工作，一般能减少至少 50% 的大小
                     // cssnano 集成了autoprefixer的功能
                     // 会使用到autoprefixer进行无关前缀的清理
                     // 关闭autoprefixer功能
