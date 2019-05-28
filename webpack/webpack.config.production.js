@@ -45,7 +45,15 @@ module.exports = {
             })
         ],
         splitChunks: {
-            chunks: 'all'
+            chunks: 'all',
+            cacheGroups: {
+                vendor: {
+                    test: /node_modules/,
+                    name: 'vendor',
+                    chunks: 'initial',
+                    enforce: true,
+                },
+            },
         }
     },
     module: {
