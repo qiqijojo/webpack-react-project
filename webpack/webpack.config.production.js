@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const TerserPlugin = require('terser-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -42,6 +43,24 @@ module.exports = {
                     keep_fnames: false,
                     safari10: true,
                 },
+            }),
+            new OptimizeCssAssetsPlugin({
+                assetNameRegExp: /\.css$/g,
+                cssProcessor: require('cssnano'),
+                cssProcessorOptions: {
+                    // 使用安全模式，避免 cssnano 重新计算 z-index
+                    safe: true,
+
+                    // 默认不移除许可证注释，这里移除所有
+                    discardComments: { removeAll: true },
+
+                    // cssnano 集成了autoprefixer的功能
+                    // 会使用到autoprefixer进行无关前缀的清理
+                    // 关闭autoprefixer功能
+                    // 使用postcss的autoprefixer功能
+                    autoprefixer: false,
+                },
+                canPrint: true
             })
         ],
         splitChunks: {
