@@ -5,6 +5,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const TerserPlugin = require('terser-webpack-plugin');
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -16,10 +18,41 @@ module.exports = {
         path: path.resolve(__dirname, '../dist'),
         publicPath: '/' // 构建资源存放路径（绝对路径）
     },
+    optimization: {
+        minimizer: [
+            // 压缩js
+            new TerserPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: false,
+                terserOptions: {
+                    ecma: undefined,
+                    warnings: false,
+                    parse: {},
+                    compress: {
+                        drop_debugger: true, // 删除 debugger
+                        drop_console: true, // 删除 console
+                    },
+                    mangle: true, // 不跳过错误的名称
+                    module: false,
+                    output: null,
+                    toplevel: false,
+                    nameCache: null,
+                    ie8: false,
+                    keep_classnames: undefined,
+                    keep_fnames: false,
+                    safari10: true,
+                },
+            })
+        ],
+        splitChunks: {
+            chunks: 'all'
+        }
+    },
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.js|jsx$/,
                 use: [{
                     loader: 'babel-loader'
                 }],
