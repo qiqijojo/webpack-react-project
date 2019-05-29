@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const HOST = process.env.HOST || '0.0.0.0'; // 本机IP
+const PORT = process.env.PORT || '8080'; // 本机IP
 module.exports = {
     entry: {
         app: path.resolve(__dirname, '../src/index.js')
@@ -12,12 +14,31 @@ module.exports = {
         publicPath: '/'
     },
     devServer: {
-        hot: true, // 开启热模块替换（必须配合inline一起使用）--实现实时预览
-        inline: true, // 可以单独使用 --实现实时预览
-        host: '0.0.0.0',
-        port: 8080,
+        // 开启热模块替换（必须配合inline一起使用）--实现实时预览
+        hot: true,
+
+        // 可以单独使用 --实现实时预览
+        inline: true,
+
+        // 允许访问的机器列表
+        allowedHosts: [HOST, 'localhost', '127.0.0.1'],
+
+        // 此选项允许浏览器（默认）使用本地 IP 打开。
+        useLocalIp: true,
+
+        // ip地址：`0.0.0.0` 支持 `localhost`、`127.0.0.1`、ip访问
+        host: HOST,
+
+        // 服务端口号
+        port: PORT,
+
+        // 启动后打开浏览器
+        open: true,
+
         // historyApiFallback: true,
-        contentBase: path.resolve(__dirname, '../dist') // 配置devserver http服务器可访问文件
+
+        // 配置devserver http服务器可访问文件
+        contentBase: path.resolve(__dirname, '../dist')
     },
     module: {
         rules: [
