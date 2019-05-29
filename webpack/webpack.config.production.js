@@ -8,6 +8,14 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
+let manifestJson = null;
+try {
+    manifestJson = require(path.resolve(__dirname, '../dist/public/dll/vendor-manifest.json'));
+} catch (error) {
+    console.error('【构建失败】您开启了 DLL 功能，但我没有找到 dll 文件');
+    console.info('请先执行\n\tnpm run build:dll\n以生成 dll 文件');
+    process.exit(0);
+}
 module.exports = {
     entry: {
         app: path.resolve(__dirname, '../src/index.js')
@@ -165,7 +173,7 @@ module.exports = {
         }),
         // webpack读取到vendor的manifest文件对于vendor的依赖不会进行编译打包
         new webpack.DllReferencePlugin({
-            manifest: require(path.resolve(__dirname, '../dist/public/dll/vendor-manifest.json'))
+            manifest: manifestJson
         }),
         // 将第三方打包文件vendor.dll.js动态添加进html里
         new HtmlWebpackIncludeAssetsPlugin({
