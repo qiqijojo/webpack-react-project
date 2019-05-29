@@ -191,5 +191,14 @@ module.exports = {
             assets: path.resolve(__dirname, '../src/assets'),
             utils: path.resolve(__dirname, '../src/utils')
         }
+    },
+    // nodeJs全局变量/模块，防止webpack注入一些nodeJs的东西到vue中
+    node: {
+        setImmediate: false,
+        dgram: 'empty',
+        fs: 'empty',
+        net: 'empty',
+        tls: 'empty',
+        child_process: 'empty'
     }
 };
