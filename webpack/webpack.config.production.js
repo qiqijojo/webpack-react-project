@@ -14,7 +14,7 @@ module.exports = {
     },
     output: {
         filename: 'public/js/[name].[hash:8].js',
-        chunkFilename: 'public/js/[id].[hash:8].chunk.js',
+        chunkFilename: 'public/js/[name].[hash:8].chunk.js',
         path: path.resolve(__dirname, '../dist'),
         publicPath: '/' // 构建资源存放路径（绝对路径）
     },
@@ -65,11 +65,11 @@ module.exports = {
             })
         ],
         splitChunks: {
-            chunks: 'all',
-            cacheGroups: {
+            chunks: 'all', // 表示显示块的范围，有三个可选值：initial(初始块)、async(按需加载块)、all(全部块)，默认为all
+            cacheGroups: { // 缓存组默认将node_modules中的模块拆分带一个叫做vendors的代码块中
                 vendor: {
                     test: /node_modules/,
-                    name: 'vendor',
+                    name: 'vendor', // 决定打包的chunk前缀名
                     chunks: 'initial',
                     enforce: true,
                 },
