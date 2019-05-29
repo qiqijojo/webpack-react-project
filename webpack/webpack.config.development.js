@@ -35,7 +35,8 @@ module.exports = {
         // 启动后打开浏览器
         open: true,
 
-        // historyApiFallback: true,
+        // html5路由
+        historyApiFallback: true,
 
         // 配置devserver http服务器可访问文件
         contentBase: path.resolve(__dirname, '../dist')
@@ -125,6 +126,7 @@ module.exports = {
     ],
     resolve: {
         alias: {
+            '@': path.resolve(__dirname, '../src'),
             pages: path.resolve(__dirname, '../src/pages'),
             components: path.resolve(__dirname, '../src/components'),
             assets: path.resolve(__dirname, '../src/assets'),

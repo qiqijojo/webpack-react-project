@@ -1,14 +1,17 @@
 import React from 'react';
+import { Router, Switch, Route } from 'react-router';
+import { createBrowserHistory } from 'history';
 import { DatePicker, Button } from 'antd';
 import Com1 from 'components/com1/index';
-import styles from './app.less';
+import '@/app.less';
 
-// 到时候是写组件按需加载的文件
+const historyInstance = createBrowserHistory();
 const App = () => (
-    <div className={styles['app-wrapper']}>
-        <Button type="primary">测试antd</Button>
-        <DatePicker />
-        <Com1 />
-    </div>
+    <Router history={historyInstance}>
+        <Switch>
+            <Route exact path='/' component={() => <div>homeeee</div>} />
+            <Route path='/next' component={Com1} />
+        </Switch>
+    </Router>
 );
 export default App;
