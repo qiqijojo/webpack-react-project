@@ -1,7 +1,6 @@
 import React from 'react';
 import { Router, Switch, Route } from 'react-router';
 import { createBrowserHistory } from 'history';
-import { DatePicker, Button } from 'antd';
 import Com1 from 'components/com1/index';
 import '@/app.less';
 
