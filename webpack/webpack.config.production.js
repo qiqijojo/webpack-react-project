@@ -7,6 +7,7 @@ const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plug
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const theme = require('../src/theme.js');
 
 let manifestJson = null;
 try {
@@ -109,7 +110,8 @@ module.exports = {
                     {
                         loader: 'less-loader',
                         options: {
-                            javascriptEnabled: true
+                            javascriptEnabled: true,
+                            modifyVars: theme
                         }
                     }
                 ]
@@ -124,7 +126,8 @@ module.exports = {
                     {
                         loader: 'less-loader',
                         options: {
-                            javascriptEnabled: true
+                            javascriptEnabled: true,
+                            modifyVars: theme
                         }
                     }
                 ]

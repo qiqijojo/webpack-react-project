@@ -30,7 +30,7 @@ npm run build
 具体配置过程中的文档可查阅：[webpack4+react 文档](https://www.jianshu.com/p/00db9107b7db)
 
 
-- [x] antd 主题修改
+- [x] antd 主题修改（修改theme.js文件需重新启动才会生效）
 - [x] 代码以及提交（commit）规范（editorConfig、eslint、prettier、stylelint、commitlint
 - [x] css Modules支持
 - [x] webpack dll 支持
