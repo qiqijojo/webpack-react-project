@@ -2,6 +2,7 @@
 module.exports = {
     // plugins 加载顺序，数组从前往后
     plugins: [
+        '@babel/plugin-syntax-dynamic-import', // 支持 `() => import('./Home')` 语法
         // 按需加载 `antd` 组件， `style: true` 会加载 less 文件
         [
             'babel-plugin-import',
