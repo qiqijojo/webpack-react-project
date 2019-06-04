@@ -23,7 +23,7 @@ module.exports = {
     },
     output: {
         filename: 'public/js/[name].[hash:8].js',
-        chunkFilename: 'public/js/[name].[hash:8].chunk.js',
+        chunkFilename: 'public/js/[name].[hash:8].chunk.js', // [name]为了只用自定义vendor,[id]是以id为前缀的
         path: path.resolve(__dirname, '../dist'),
         publicPath: '/' // 构建资源存放路径（绝对路径）
     },
