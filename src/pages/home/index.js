@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'antd';
+import { Com1 } from 'components/index';
 
 class Home extends Component {
     constructor() {
@@ -25,6 +26,7 @@ class Home extends Component {
             <div>
                 这是首页
                 <Button type="primary" onClick={this.handleClick}>按钮</Button>
+                <Com1 />
             </div>
         );
     }
