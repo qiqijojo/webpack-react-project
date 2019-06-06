@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const theme = require('../src/theme.js');
+const theme = require('./theme.js');
 
 const HOST = process.env.HOST || '0.0.0.0'; // 本机IP
 const PORT = process.env.PORT || '8080'; // 本机IP
