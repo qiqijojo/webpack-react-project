@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -11,7 +11,7 @@ const theme = require('../src/theme.js');
 
 let manifestJson = null;
 try {
-    manifestJson = require(path.resolve(__dirname, '../dist/public/dll/vendor-manifest.json'));
+    manifestJson = require(path.resolve(__dirname, '../dist/dll/vendor-manifest.json'));
 } catch (error) {
     console.error('【构建失败】您开启了 DLL 功能，但我没有找到 dll 文件');
     console.info('请先执行\n\tnpm run build:dll\n以生成 dll 文件');
@@ -22,8 +22,8 @@ module.exports = {
         app: path.resolve(__dirname, '../src/index.js')
     },
     output: {
-        filename: 'public/js/[name].[hash:8].js',
-        chunkFilename: 'public/js/[name].[hash:8].chunk.js', // [name]为了只用自定义vendor,[id]是以id为前缀的
+        filename: 'js/[name].[hash:8].js',
+        chunkFilename: 'js/[name].[hash:8].chunk.js', // [name]为了只用自定义vendor,[id]是以id为前缀的
         path: path.resolve(__dirname, '../dist'),
         publicPath: '/' // 构建资源存放路径（绝对路径）
     },
@@ -138,7 +138,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            outputPath: 'public/images/',
+                            outputPath: 'images/',
                             name: '[name].[hash:8].[ext]'
                         }
                     },
@@ -153,7 +153,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            outputPath: 'public/font/',
+                            outputPath: 'font/',
                             name: '[name].[hash:8].[ext]'
                         }
                     }
@@ -162,17 +162,21 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(['public', 'index.html'], {
-            root: path.resolve(__dirname, '../dist'),
-            exclude: ['dll'] // clean时，不删除dll文件夹
+        new CleanWebpackPlugin({
+            verbose: true, // 打印被删除的文件
+            cleanOnceBeforeBuildPatterns: ['**/*', '!dll', '!dll/**/*']
         }),
+        // new CleanWebpackPlugin(['public', 'index.html'], {
+        //     root: path.resolve(__dirname, '../dist'),
+        //     exclude: ['dll'] // clean时，不删除dll文件夹
+        // }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../public/index.html'),
             filename: 'index.html'
         }),
         new MiniCssExtractPlugin({
-            filename: 'public/css/[name].[hash:8].css',
-            chunkFilename: 'public/css/[id].[hash:8].chunk.css'
+            filename: 'css/[name].[hash:8].css',
+            chunkFilename: 'css/[id].[hash:8].chunk.css'
         }),
         // webpack读取到vendor的manifest文件对于vendor的依赖不会进行编译打包
         new webpack.DllReferencePlugin({
@@ -180,12 +184,12 @@ module.exports = {
         }),
         // 将第三方打包文件vendor.dll.js动态添加进html里
         new HtmlWebpackIncludeAssetsPlugin({
-            assets: ['public/dll/vendor.dll.js'],
+            assets: ['dll/vendor.dll.js'],
             append: false // false 在其他资源的之前添加 true 在其他资源之后添加
         }),
-        new BundleAnalyzerPlugin({
-            analyzerPort: 8081
-        })
+        // new BundleAnalyzerPlugin({
+        //     analyzerPort: 8081
+        // })
     ],
     resolve: {
         alias: {

@@ -9,8 +9,8 @@ module.exports = {
         app: path.resolve(__dirname, '../src/index.js')
     },
     output: {
-        filename: 'public/js/[name].js',
-        chunkFilename: 'public/js/[id].chunk.js',
+        filename: 'js/[name].js',
+        chunkFilename: 'js/[id].chunk.js',
         path: path.resolve(__dirname, '../dist'),
         publicPath: '/'
     },
@@ -101,7 +101,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            outputPath: 'public/images/',
+                            outputPath: 'images/',
                             name: '[name].[ext]'
                         }
                     }
@@ -113,7 +113,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            outputPath: 'public/font/',
+                            outputPath: 'font/',
                             name: '[name].[ext]'
                         }
                     }
