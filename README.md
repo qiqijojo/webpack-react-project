@@ -36,8 +36,8 @@ npm run build
 - [x] webpack dll 支持
 - [x] 打包（减小体积）：资源压缩（js、css、img、font···）
 - [x] 打包（提升速度）：应用和dll分离
-- [ ] 按需加载
-- [ ] 项目目录划分
+- [x] 按需加载
+- [x] 项目目录划分
 - [ ] proxy代理请求
 - [ ] 分支管理（ts、mobx、rxjs）
 - [ ] 添加单元测试
