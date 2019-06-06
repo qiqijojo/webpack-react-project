@@ -8,7 +8,11 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const theme = require('../src/theme.js');
+const switchConfig = require('./switch.config');
 
+const {
+    OPEN_WBA
+} = switchConfig;
 let manifestJson = null;
 try {
     manifestJson = require(path.resolve(__dirname, '../dist/dll/vendor-manifest.json'));
@@ -183,10 +187,10 @@ module.exports = {
             assets: ['dll/vendor.dll.js'],
             append: false // false 在其他资源的之前添加 true 在其他资源之后添加
         }),
-        // new BundleAnalyzerPlugin({
-        //     analyzerPort: 8081
-        // })
-    ],
+        OPEN_WBA && new BundleAnalyzerPlugin({
+            analyzerPort: 8081
+        })
+    ].filter(Boolean),
     resolve: {
         alias: {
             '@': path.resolve(__dirname, '../src'),
