@@ -166,10 +166,6 @@ module.exports = {
             verbose: true, // 打印被删除的文件
             cleanOnceBeforeBuildPatterns: ['**/*', '!dll', '!dll/**/*']
         }),
-        // new CleanWebpackPlugin(['public', 'index.html'], {
-        //     root: path.resolve(__dirname, '../dist'),
-        //     exclude: ['dll'] // clean时，不删除dll文件夹
-        // }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../public/index.html'),
             filename: 'index.html'
