@@ -133,7 +133,8 @@ module.exports = {
             pages: path.resolve(__dirname, '../src/pages'),
             components: path.resolve(__dirname, '../src/components'),
             assets: path.resolve(__dirname, '../src/assets'),
-            utils: path.resolve(__dirname, '../src/utils')
+            utils: path.resolve(__dirname, '../src/utils'),
+            router: path.resolve(__dirname, '../src/router')
         }
     },
     // nodeJs全局变量/模块，防止webpack注入一些nodeJs的东西到vue中
