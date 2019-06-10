@@ -45,3 +45,5 @@ npm run build（打包若要开启分析器，则需要修改switch文件:`OPEN_
 - [ ] 添加单元测试
 - [ ] 命令安装脚手架
 
+**package.json说明：**
+* stylelint、url-loader安装了，暂时没用。
