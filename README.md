@@ -21,7 +21,7 @@ npm start
 npm start --qa # qa 环境
 
 # 构建命令
-npm run build
+npm run build（打包若要开启分析器，则需要修改switch文件:`OPEN_WBA: true`）
 ```
 
 ## 功能
