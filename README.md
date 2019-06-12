@@ -39,11 +39,13 @@ npm run build（打包若要开启分析器，则需要修改switch文件:`OPEN_
 - [x] 按需加载
 - [x] 添加Error Boundary
 - [x] 项目目录划分（页面创建-路由添加）
-- [x] 定期更新版本库
+- [x] 定期手动更新版本库
+- [x] 添加Travis CI
+- [x] CI发布原理（写脚本进行域名、主机映射）
 - [ ] proxy代理请求
 - [ ] 分支管理（ts、mobx、rxjs）
 - [ ] 添加单元测试
-- [ ] 命令安装脚手架
+- [ ] 命令安装脚手架（初始化）
 
 **package.json说明：**
 * stylelint、url-loader安装了，暂时没用。
