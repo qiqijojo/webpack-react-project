@@ -43,6 +43,7 @@ npm run build # （打包若要开启分析器，则需要修改switch文件:`OP
 - [x] 添加Travis CI
 - [x] CI发布原理（写脚本进行域名、主机映射）
 - [x] proxy代理请求
+- [x] request请求文件配置 
 - [ ] 分支管理（ts、mobx、rxjs）
 - [ ] 添加单元测试
 - [ ] 命令安装脚手架（初始化）
