@@ -40,7 +40,18 @@ module.exports = {
         historyApiFallback: true,
 
         // 配置devserver http服务器可访问文件
-        contentBase: path.resolve(__dirname, '../dist')
+        contentBase: path.resolve(__dirname, '../dist'),
+
+        // proxy请求代理
+        proxy: {
+            '/api': {
+                target: 'http://rap2api.taobao.org',
+                changeOrigin: true, // 为支持跨域
+                pathRewrite: {
+                    '^/api': '/app/mock/14810/'
+                }
+            }
+        }
     },
     module: {
         rules: [

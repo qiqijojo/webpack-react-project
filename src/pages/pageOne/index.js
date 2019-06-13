@@ -10,7 +10,20 @@ class PageOne extends Component {
     }
 
     handleClick = () => {
-        console.info('99');
+        const obj = { pageType: 'one' };
+        const params = {
+            body: JSON.stringify(obj),
+            credentials: 'include',
+            headers: {
+                'content-type': 'application/json'
+            },
+            method: 'POST'
+        };
+        fetch('/api/test/pageOne', params) // 返回的是一个promise对象，因此后面要用.then接收
+            .then(response => response.json()) // 返回的是一个promise对象，因此后面要用.then接收
+            .then((myJson) => {
+                console.info(myJson);
+            });
     }
 
     render() {
