@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'antd';
+import request from 'utils/request';
 
 class PageOne extends Component {
     constructor() {
@@ -9,7 +10,7 @@ class PageOne extends Component {
         };
     }
 
-    handleClick = () => {
+    handleClick = async () => {
         const obj = { pageType: 'one' };
         const params = {
             body: JSON.stringify(obj),
@@ -19,11 +20,8 @@ class PageOne extends Component {
             },
             method: 'POST'
         };
-        fetch('/api/test/pageOne', params) // 返回的是一个promise对象，因此后面要用.then接收
-            .then(response => response.json()) // 返回的是一个promise对象，因此后面要用.then接收
-            .then((myJson) => {
-                console.info(myJson);
-            });
+        const result = await request('/api/test/pageOne', params);
+        console.info('666', result);
     }
 
     render() {
