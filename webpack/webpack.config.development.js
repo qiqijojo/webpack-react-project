@@ -1,9 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const theme = require('./theme.js');
+const proxyConfig = require('./proxy.config');
+const getProxyByEnv = require('./getProxyByEnv');
+const theme = require('./theme');
 
 const HOST = process.env.HOST || '0.0.0.0'; // 本机IP
 const PORT = process.env.PORT || '8080'; // 本机IP
+const proxyCurrent = getProxyByEnv(proxyConfig);
+
 module.exports = {
     entry: {
         app: path.resolve(__dirname, '../src/index.js')
@@ -43,15 +47,7 @@ module.exports = {
         contentBase: path.resolve(__dirname, '../dist'),
 
         // proxy请求代理
-        proxy: {
-            '/api': {
-                target: 'http://rap2api.taobao.org',
-                changeOrigin: true, // 为支持跨域
-                pathRewrite: {
-                    '^/api': '/app/mock/14810/'
-                }
-            }
-        }
+        proxy: proxyCurrent
     },
     module: {
         rules: [

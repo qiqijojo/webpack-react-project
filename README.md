@@ -21,7 +21,7 @@ npm start
 npm start --qa # qa 环境
 
 # 构建命令
-npm run build（打包若要开启分析器，则需要修改switch文件:`OPEN_WBA: true`）
+npm run build # （打包若要开启分析器，则需要修改switch文件:`OPEN_WBA: true`）
 ```
 
 ## 功能
@@ -42,7 +42,7 @@ npm run build（打包若要开启分析器，则需要修改switch文件:`OPEN_
 - [x] 定期手动更新版本库
 - [x] 添加Travis CI
 - [x] CI发布原理（写脚本进行域名、主机映射）
-- [ ] proxy代理请求
+- [x] proxy代理请求
 - [ ] 分支管理（ts、mobx、rxjs）
 - [ ] 添加单元测试
 - [ ] 命令安装脚手架（初始化）
