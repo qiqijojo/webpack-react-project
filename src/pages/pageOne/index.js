@@ -12,15 +12,7 @@ class PageOne extends Component {
 
     handleClick = async () => {
         const obj = { pageType: 'one' };
-        const params = {
-            body: JSON.stringify(obj),
-            credentials: 'include',
-            headers: {
-                'content-type': 'application/json'
-            },
-            method: 'POST'
-        };
-        const result = await request('/api/test/pageOne', params);
+        const result = await request.post('/api/test/pageOne', obj);
         console.info('666', result);
     }
 
