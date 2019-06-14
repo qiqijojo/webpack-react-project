@@ -32,7 +32,7 @@ function getRequestParams(params, method) {
 }
 // 核对请求状态
 async function processRequestStatus(response) {
-    if (!errCodeMessages[response.status]) {
+    if (errCodeMessages[response.status]) {
         throw new Error('请求出错');
     } else {
         const resText = await response.text();
