@@ -12,10 +12,13 @@ class PageOne extends Component {
 
     handleClick = async () => {
         const obj = { pageType: 'one' };
-        const { data } = await request.post('/api/test/pageOne', obj);
-        await this.setState({
-            text: data.textValue
-        });
+        const result = await request.post('/api/test/pageOne', obj);
+        if (result && result.code === 0) {
+            const { data } = result;
+            await this.setState({
+                text: data.textValue
+            });
+        }
     }
 
     render() {

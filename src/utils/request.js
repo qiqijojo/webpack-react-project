@@ -32,8 +32,8 @@ function getRequestParams(params, method) {
 }
 // 核对请求状态
 async function processRequestStatus(response) {
-    if (errCodeMessages[response.status]) {
-        throw new Error();
+    if (!errCodeMessages[response.status]) {
+        throw new Error('请求出错');
     } else {
         const resText = await response.text();
         return resText ? JSON.parse(resText) : {};
@@ -45,8 +45,8 @@ async function commonRequest(url, params, method) {
     const response = await fetch(url, requestParams); // 不加await返回的是一个promise对象；加await返回是一个包含相应状态的json对象
     try {
         return await processRequestStatus(response); // 添加await的原因：解决当出现错误的时候不走catch；响应正常的时候加不加都可以
-    } catch {
-        message.error('请求出错');
+    } catch (err) {
+        message.error(err.message);
     }
 }
 // post请求
