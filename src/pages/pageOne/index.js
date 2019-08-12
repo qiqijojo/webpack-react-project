@@ -6,10 +6,11 @@ class PageOne extends Component {
     constructor() {
         super();
         this.state = {
-            text: '默认值'
+            text: '默认值：null'
         };
     }
 
+    // 请求数据-无数据流管理-目前在页面
     handleClick = async () => {
         const obj = { pageType: 'one' };
         const result = await request.post('/api/test/pageOne', obj);

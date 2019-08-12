@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'antd';
+import { Row, Col, Button } from 'antd';
 import { Com1 } from 'components/index';
+import styles from './index.less';
 
 class Home extends Component {
     constructor() {
@@ -11,6 +12,7 @@ class Home extends Component {
         };
     }
 
+    // 测试error boundary
     handleClick = () => {
         this.setState({
             crashStatus: true
@@ -22,6 +24,7 @@ class Home extends Component {
         });
     }
 
+    // 页面跳转
     handleJump = () => {
         const { history } = this.props;
         history.push('/pageOne');
@@ -29,11 +32,21 @@ class Home extends Component {
 
     render() {
         return (
-            <div>
-                <h3>这是首页</h3>
-                <Button type="primary" onClick={this.handleClick}>按钮</Button>
-                <Button type="primary" onClick={this.handleJump}>跳转到pageOne页面</Button>
-                <Com1 />
+            <div className={styles['home-wrapper']}>
+                <Row>
+                    <Col span={3}>
+                        <h1>这是首页</h1>
+                    </Col>
+                    <Col span={6}>
+                        <Button type="primary" onClick={this.handleClick}>测试error boundary</Button>
+                    </Col>
+                    <Col span={6}>
+                        <Com1 />
+                    </Col>
+                    <Col span={6}>
+                        <Button type="primary" onClick={this.handleJump}>跳转到pageOne页面</Button>
+                    </Col>
+                </Row>
             </div>
         );
     }
