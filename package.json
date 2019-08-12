@@ -9,7 +9,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/qiqijojo/webpack-react-project.git"
+        "url": "git@github.com:qiqijojo/webpack-react-project.git"
     },
     "keywords": [
         "webpack\\react"
