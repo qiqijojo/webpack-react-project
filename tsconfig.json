@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": ".",
+        "experimentalDecorators": true,
+        "jsx": "react",
+        "module": "esnext",
+        "strict": true,
+        "outDir": "./built",
+        "sourceMap": true,
+        "target": "esnext"
+    },
+    "rules": {
+        "no-implicit-dependencies": ["optional", ["src"]]
+    },
+    "include": ["./src/**/*", "./declaration"]
+}
