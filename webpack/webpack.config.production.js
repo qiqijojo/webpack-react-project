@@ -185,7 +185,7 @@ module.exports = {
         // 将第三方打包文件vendor.dll.js动态添加进html里
         new HtmlWebpackIncludeAssetsPlugin({
             assets: ['dll/vendor.dll.js'],
-            append: false // false 在其他资源的之前添加 true 在其他资源之后添加
+            append: false // false 在其他资源的之前添加； true 在其他资源之后添加
         }),
         OPEN_WBA && new BundleAnalyzerPlugin({
             analyzerPort: 8081

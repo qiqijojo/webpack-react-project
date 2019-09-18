@@ -52,6 +52,8 @@ class Home extends Component {
     }
 }
 Home.propTypes = {
-    history: PropTypes.shape({}).isRequired
+    history: PropTypes.shape({
+        push: PropTypes.func
+    }).isRequired
 };
 export default Home;
