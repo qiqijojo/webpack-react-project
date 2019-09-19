@@ -71,18 +71,13 @@
         "webpack-dev-server": "^3.8.1"
     },
     "lint-staged": {
-        "linters": {
-            "src/**/*.{js, jsx}": [
-                "eslint --fix",
-                "git add"
-            ],
-            "*.{json, md}": [
-                "prettier --write",
-                "git add"
-            ]
-        },
-        "ignore": [
-            "package.json"
+        "src/**/*.{js, jsx}": [
+            "eslint --fix",
+            "git add"
+        ],
+        "*.{json, md}": [
+            "prettier --write",
+            "git add"
         ]
     },
     "husky": {
