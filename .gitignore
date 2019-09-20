@@ -16,3 +16,6 @@ yarn.lock
 
 # misc
 .DS_Store
+
+# 忽略单元测试覆盖率生成的报告：coverage文件
+coverage/

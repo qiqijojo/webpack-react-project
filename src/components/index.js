@@ -5,5 +5,5 @@ import Com1 from './com1/index';
 export {
     ErrorBoundary,
     Loading,
-    Com1,
+    Com1
 };
