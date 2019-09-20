@@ -44,8 +44,8 @@ npm run build # （打包若要开启分析器，则需要修改switch文件:`OP
 - [x] CI发布原理（写脚本进行域名、主机映射）
 - [x] proxy代理请求（根据npm_config_xx进行域名转换）
 - [x] request请求文件配置 
-- [ ] 分支管理（ts、mobx、rxjs）
-- [ ] 添加单元测试
+- [x] 分支管理（ts、mobx、rxjs）
+- [x] 添加单元测试 - (jasmine-单元测试) + (istanbul-测试覆盖率)
 - [x] 命令安装脚手架（初始化）- 原理了解: 查看（https://www.jianshu.com/p/700393f669e3）
 
 **package.json说明：**
